@@ -28,17 +28,17 @@ export default function Hero() {
         <motion.div variants={itemVars} className="mb-6 inline-flex border border-blue-500/30 bg-blue-500/10 rounded-full px-4 py-1.5 backdrop-blur-md">
           <span className="text-sm font-medium text-blue-300 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-            Available for Cloud Consulting
+            Available for AI & Cloud Consulting
           </span>
         </motion.div>
         
         <motion.h1 variants={itemVars} className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8">
           Hi, I&apos;m <span className="text-gradient">Shyam Sundhar</span>
-          <br className="hidden md:block" /> Building the Future of Cloud
+          <br className="hidden md:block" /> Architecting Intelligent Systems
         </motion.h1>
         
         <motion.p variants={itemVars} className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-          I&apos;m a Senior Cloud Solutions Architect turning complex technical challenges into scalable, high-performance, and resilient infrastructures.
+          I&apos;m an AI & Software Engineer building multi-agent systems, automated content pipelines, and scalable machine learning architectures.
         </motion.p>
         
         <motion.div variants={itemVars} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">

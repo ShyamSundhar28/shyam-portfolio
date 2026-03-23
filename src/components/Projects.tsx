@@ -5,23 +5,44 @@ import { FiExternalLink, FiGithub } from "react-icons/fi";
 
 const projects = [
   {
-    title: "Enterprise Cloud Migration",
-    description: "Architected and led the migration of a monolithic on-premise application to a highly scalable, serverless microservices architecture on AWS using Lambda and DynamoDB, optimizing cost by 40%.",
-    tags: ["AWS", "Microservices", "Terraform", "Serverless"],
+    title: "Automated YouTube Shorts Generator",
+    description: "End-to-end AI-powered Python application that transforms trending topics into 60-second shorts. Retrieves content, summarizes via TF-IDF/BART, detects emotional tone, generates scene-based image prompts, synthesizes TTS narration, and assembles via MoviePy/FFmpeg.",
+    tags: ["Python", "NLP", "Hugging Face", "MoviePy", "TTS"],
     link: "#",
     github: "#"
   },
   {
-    title: "Global FinTech Deployment",
-    description: "Designed a multi-region Active-Active architecture for a financial platform ensuring 99.999% uptime, utilizing Kubernetes across GCP and AWS with robust Disaster Recovery protocols.",
-    tags: ["Kubernetes", "GCP", "High Availability", "FinTech"],
+    title: "Food Bank Inventory System",
+    description: "Cloud-based inventory management application built for warehouse-style workflows. Features product categorization, case/unit tracking, authentication, and stock update logic using Angular, Firebase, and AWS architectures.",
+    tags: ["Angular", "Firebase", "AWS Cognito", "DynamoDB"],
     link: "#",
     github: "#"
   },
   {
-    title: "Firebase AI Platform",
-    description: "Built a generative AI platform with Next.js hosted on Firebase App Hosting, utilizing Vertex AI, Firestore, and Cloud Functions to deliver real-time personalized insights.",
-    tags: ["Firebase", "Next.js", "Vertex AI", "Cloud Functions"],
+    title: "Agentic AI Dashboard",
+    description: "Multi-agent AI dashboard engineered in Python and Streamlit where specialized intelligent agents collaborate to handle data ingestion, automated analysis, and visualization tasks.",
+    tags: ["Python", "Streamlit", "Agentic AI", "Data Analytics"],
+    link: "#",
+    github: "#"
+  },
+  {
+    title: "Speech Emotion Recognition",
+    description: "Machine learning workflow classifying emotions from human voice data. Integrated the prediction model into an AI media generation pipeline to influence narration tone and visual prompts.",
+    tags: ["Machine Learning", "Audio Processing", "Classification"],
+    link: "#",
+    github: "#"
+  },
+  {
+    title: "Forensic DDoS Detection",
+    description: "Network forensics project detecting DDoS attack patterns using Wireshark, traffic graphs, and anomaly interpretation. Supported with Python PCAP parsing and threshold-based detection.",
+    tags: ["Cybersecurity", "Wireshark", "Network Forensics", "Python"],
+    link: "#",
+    github: "#"
+  },
+  {
+    title: "Accessible Exam System",
+    description: "Inclusive online examination platform designed specifically for visually impaired users. Emphasizes accessibility, usability in educational technology, and assistive design principles.",
+    tags: ["Accessibility", "EdTech", "Inclusive Design"],
     link: "#",
     github: "#"
   }
@@ -41,7 +62,7 @@ export default function Projects() {
           Featured <span className="text-gradient">Projects</span>
         </h2>
         <p className="text-slate-400 text-lg max-w-2xl">
-          A selection of challenging cloud architectures and high-impact solutions I&apos;ve designed and delivered.
+          A selection of challenging engineering solutions, AI-driven automation systems, and high-impact applications I&apos;ve designed and delivered.
         </p>
       </motion.div>
 
