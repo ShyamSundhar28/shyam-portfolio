@@ -59,7 +59,7 @@ export default function Hero() {
             <FiGithub size={24} />
             <span className="sr-only">GitHub</span>
           </a>
-          <a href="mailto:contact@example.com" className="p-3 bg-slate-800/50 rounded-full text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
+          <a href="mailto:shyamsundhar432@gmail.com" className="p-3 bg-slate-800/50 rounded-full text-slate-300 hover:text-white hover:bg-slate-700 transition-colors">
             <FiMail size={24} />
             <span className="sr-only">Email</span>
           </a>
