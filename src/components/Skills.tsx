@@ -3,12 +3,12 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  { category: "Cloud Providers", items: ["AWS", "Google Cloud", "Microsoft Azure"] },
-  { category: "Infrastructure as Code", items: ["Terraform", "CloudFormation", "Ansible"] },
-  { category: "Containerization", items: ["Docker", "Kubernetes", "EKS/GKE"] },
-  { category: "CI/CD & DevOps", items: ["GitHub Actions", "Jenkins", "GitLab CI"] },
-  { category: "Frontend & Full-Stack", items: ["Next.js", "React", "Node.js", "Firebase App Hosting"] },
-  { category: "Architecture Patterns", items: ["Serverless", "Microservices", "Event-Driven"] },
+  { category: "Cloud & Architecture", items: ["Google Cloud Platform", "AWS", "BigQuery", "Dataflow", "Pub/Sub", "Dataproc", "Cloud Composer", "Vertex AI", "BigQuery ML", "Cognito"] },
+  { category: "AI & Machine Learning", items: ["NLP Summarization (BART)", "Speech Emotion Recognition", "Prompt Generation", "TTS Pipeline Integration", "Extractive TF-IDF"] },
+  { category: "Databases & Storage", items: ["DynamoDB", "Firebase Realtime", "Cloud Spanner", "Bigtable", "Cloud SQL", "Cloud Storage"] },
+  { category: "Programming", items: ["Python", "TypeScript", "HTML", "CSS"] },
+  { category: "Frameworks & Frontend", items: ["Angular", "Next.js", "Streamlit", "Component-driven UI"] },
+  { category: "Dev Tools & Media", items: ["Git / GitHub Actions", "VS Code", "MoviePy", "FFmpeg", "OpenCV", "Wireshark Packet Analysis"] },
 ];
 
 export default function Skills() {
@@ -27,7 +27,7 @@ export default function Skills() {
           Core <span className="text-gradient">Competencies</span>
         </h2>
         <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-          Equipped with advanced tools and methodologies to engineer resilient, scalable, securely decoupled systems.
+          Combining academic theory, real-world operational understanding, and intensive cloud-engineering capabilities to build intelligent scalable systems.
         </p>
       </motion.div>
 
@@ -39,7 +39,7 @@ export default function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
-            className="glass-panel p-8 rounded-2xl"
+            className="glass-panel p-8 rounded-2xl hover:border-blue-500/30 transition-colors"
           >
             <h3 className="text-xl font-bold mb-6 text-blue-400 flex items-center gap-3">
               <span className="w-8 h-8 rounded bg-blue-500/10 flex items-center justify-center text-sm">✦</span>
@@ -47,8 +47,8 @@ export default function Skills() {
             </h3>
             <ul className="space-y-3">
               {skillGroup.items.map(item => (
-                <li key={item} className="flex items-center text-slate-300 font-medium tracking-wide">
-                  <span className="w-1.5 h-1.5 rounded-full bg-violet-400 mr-3" />
+                <li key={item} className="flex items-center text-slate-300 tracking-wide text-[0.95rem]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-violet-400 mr-3 shrink-0" />
                   {item}
                 </li>
               ))}
