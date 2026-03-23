@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiBriefcase, FiBookOpen, FiBox } from "react-icons/fi";
+import { FiBriefcase, FiBookOpen, FiAward } from "react-icons/fi";
 
 const milestones = [
   {
     icon: <FiBriefcase className="text-blue-400 text-2xl" />,
-    title: "3 Years Data Engineering",
-    subtitle: "Chennai, India",
-    description: "Built scalable data workflows and gained deep enterprise experience as a Data Engineering Associate & Analyst.",
+    title: "3 Years at Accenture",
+    subtitle: "Data & AI Engineer (Google Engagement)",
+    description: "Designed & optimized BigQuery pipelines, developed Cloud Functions, and managed IAM across extensive Google Cloud enterprise ecosystems.",
     color: "group-hover:text-blue-400",
     bg: "bg-blue-500/10 border-blue-500/20"
   },
@@ -16,15 +16,15 @@ const milestones = [
     icon: <FiBookOpen className="text-violet-400 text-2xl" />,
     title: "MSc Computational Science",
     subtitle: "Laurentian University (Exp. April 2026)",
-    description: "Specializing in cloud architecture, AI systems, and technical research with a heavy focus on Google Cloud & AWS.",
+    description: "Deepening my specialization in Generative AI, Data Mining, and creating highly resilient, automated full-stack application architectures.",
     color: "group-hover:text-violet-400",
     bg: "bg-violet-500/10 border-violet-500/20"
   },
   {
-    icon: <FiBox className="text-emerald-400 text-2xl" />,
-    title: "Real-World Operations",
-    subtitle: "Warehouse Associate",
-    description: "Hands-on logistics and inventory flow experience, allowing me to build software rooted in actual operational efficiency.",
+    icon: <FiAward className="text-emerald-400 text-2xl" />,
+    title: "Google Cloud Certified",
+    subtitle: "Associate Cloud Engineer",
+    description: "Currently progressing towards Professional Data Engineer certification (67% complete, testing before April 2026). Active Google Developers member.",
     color: "group-hover:text-emerald-400",
     bg: "bg-emerald-500/10 border-emerald-500/20"
   }
@@ -47,7 +47,7 @@ export default function About() {
         </h2>
         
         <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
-          I bridge the gap between complex <span className="text-white font-semibold">AI/Cloud engineering</span> and <span className="text-white font-semibold">real-world application</span>. With a solid foundation in computer science and robust professional data engineering experience, I design scalable, intelligent systems.
+          I bridge the gap between complex <span className="text-white font-semibold">AI/Cloud systems</span> and <span className="text-white font-semibold">real-world enterprise scale</span>. Starting my career at Accenture deeply embedded in Google Cloud initiatives, I gained robust engineering experience before pursuing advanced applied AI research.
         </p>
       </motion.div>
 

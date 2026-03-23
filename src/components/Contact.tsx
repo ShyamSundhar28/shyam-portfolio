@@ -38,11 +38,20 @@ export default function Contact() {
               <FiMail className="text-xl" /> Send me an Email
             </span>
           </a>
+          <a
+            href="tel:+12498797974"
+            className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 font-bold text-white bg-emerald-600 rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(16,185,129,0.5)] w-full sm:w-auto"
+          >
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-emerald-600 to-teal-600 group-hover:opacity-80 transition-opacity"></span>
+            <span className="relative flex items-center gap-2">
+              Call Me
+            </span>
+          </a>
         </div>
         
         <div className="mt-16 flex flex-col md:flex-row items-center justify-center gap-8 text-slate-400">
           <div className="flex items-center gap-2">
-            <FiMapPin className="text-blue-400" /> Based globally, architecting for the cloud
+            <FiMapPin className="text-blue-400" /> Ontario, Canada (Open to Mississauga/Hybrid)
           </div>
         </div>
       </motion.div>
