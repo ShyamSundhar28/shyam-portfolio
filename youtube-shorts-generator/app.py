@@ -28,15 +28,27 @@ class GenerateRequest(BaseModel):
     video_id: str
     region: str = "US"
 
+import re
+
+def parse_duration(duration_str):
+    """Parse an ISO8601 duration string (e.g., 'PT1H2M3S') and return duration in seconds."""
+    hours = minutes = seconds = 0
+    match = re.match(r'PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?', duration_str)
+    if match:
+        if match.group(1): hours = int(match.group(1))
+        if match.group(2): minutes = int(match.group(2))
+        if match.group(3): seconds = int(match.group(3))
+    return hours * 3600 + minutes * 60 + seconds
+
 @app.get("/api/trending/{region}")
 async def get_trending_videos(region: str):
     """
-    Fetches the top 10 trending videos for a specific region using the YouTube Data API v3.
+    Fetches the top 10 trending long-form videos for a specific region using the YouTube Data API v3.
+    It filters out existing YouTube Shorts (duration < 60s).
     Requires YOUTUBE_API_KEY in .env
     """
     if not YOUTUBE_API_KEY:
-        # Fallback to realistic mock data so the portfolio UI never breaks during demonstrations 
-        # if the API key isn't loaded or quota is exceeded.
+        # Fallback realistic mock data...
         return {
             "videos": [
                 {
@@ -69,10 +81,10 @@ async def get_trending_videos(region: str):
     import requests
     url = "https://www.googleapis.com/youtube/v3/videos"
     params = {
-        "part": "snippet,statistics",
+        "part": "snippet,statistics,contentDetails",
         "chart": "mostPopular",
         "regionCode": region,
-        "maxResults": 10,
+        "maxResults": 50,
         "key": YOUTUBE_API_KEY
     }
     
@@ -84,6 +96,12 @@ async def get_trending_videos(region: str):
     videos = []
     
     for item in data.get("items", []):
+        duration_str = item.get("contentDetails", {}).get("duration", "")
+        if duration_str:
+            duration_sec = parse_duration(duration_str)
+            if duration_sec < 60:
+                continue  # Skip short videos (under 60s)
+                
         snippet = item.get("snippet", {})
         stats = item.get("statistics", {})
         
@@ -100,6 +118,9 @@ async def get_trending_videos(region: str):
             "description": snippet.get("description", "")[:150] + "..."
         })
         
+        if len(videos) >= 10:
+            break
+            
     return {"videos": videos}
 
 @app.post("/api/generate")
