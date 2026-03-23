@@ -8,7 +8,7 @@ const projects = [
     title: "Automated YouTube Shorts Generator",
     description: "End-to-end AI-powered Python application that transforms trending topics into 60-second shorts. Retrieves content, summarizes via TF-IDF/BART, detects emotional tone, generates scene-based image prompts, synthesizes TTS narration, and assembles via MoviePy/FFmpeg.",
     tags: ["Python", "NLP", "Hugging Face", "MoviePy", "TTS"],
-    link: "#",
+    link: "/youtube-shorts",
     github: "#"
   },
   {
@@ -22,7 +22,7 @@ const projects = [
     title: "Agentic AI Dashboard",
     description: "Multi-agent AI dashboard engineered in Python and Streamlit where specialized intelligent agents collaborate to handle data ingestion, automated analysis, and visualization tasks.",
     tags: ["Python", "Streamlit", "Agentic AI", "Data Analytics"],
-    link: "#",
+    link: "/agentic-dashboard",
     github: "#"
   },
   {

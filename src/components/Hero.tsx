@@ -3,17 +3,15 @@
 import { motion } from "framer-motion";
 import { FiArrowRight, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const containerVars = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.3 } },
-} as any;
+};
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const itemVars = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 12 } },
-} as any;
+  show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100, damping: 12 } },
+};
 
 export default function Hero() {
   return (

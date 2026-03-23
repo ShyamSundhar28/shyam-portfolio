@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+moviepy
+gTTS
+transformers
+nltk
+requests
+beautifulsoup4
+opencv-python
+numpy
+pandas
+python-dotenv

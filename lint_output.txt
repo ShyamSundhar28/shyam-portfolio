@@ -1,0 +1,14 @@
+﻿
+> shyam-portfolio@0.1.0 lint
+> eslint
+
+
+C:\Users\91807\.gemini\antigravity\scratch\shyam-portfolio\src\app\youtube-shorts\page.tsx
+  22:10  warning  'jobId' is assigned a value but never used                                                                        @typescript-eslint/no-unused-vars
+  29:9   warning  'API_URL' is assigned a value but never used                                                                      @typescript-eslint/no-unused-vars
+  77:3   warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')
+  80:6   warning  React Hook useEffect has a missing dependency: 'fetchTrending'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Γ£û 4 problems (0 errors, 4 warnings)
+  0 errors and 1 warning potentially fixable with the `--fix` option.
+
