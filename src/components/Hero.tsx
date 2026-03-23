@@ -1,17 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiArrowRight, FiGithub, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
+import { FiArrowRight, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
 
 const containerVars = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.3 } },
-};
+} as any;
 
 const itemVars = {
   hidden: { opacity: 0, y: 30 },
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 12 } },
-};
+} as any;
 
 export default function Hero() {
   return (
