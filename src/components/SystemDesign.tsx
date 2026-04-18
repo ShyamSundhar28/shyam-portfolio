@@ -72,13 +72,29 @@ export default function SystemDesign() {
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1
+              }
+            }
+          }}
           className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6"
         >
           {patterns.map((item, i) => (
-            <div key={item.title} className="glass-card p-8 group">
+            <motion.div 
+              key={item.title} 
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0 }
+              }}
+              className="glass-card p-8 group hover:border-blue-500/50 transition-all duration-500"
+            >
               <div className="text-3xl mb-6 group-hover:scale-110 transition-transform duration-300">
                 {item.icon}
               </div>
@@ -91,7 +107,7 @@ export default function SystemDesign() {
               <p className="text-slate-400 text-sm leading-relaxed">
                 {item.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>

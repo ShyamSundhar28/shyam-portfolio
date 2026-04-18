@@ -169,16 +169,20 @@ export default function TelemetryMonitor() {
         >
           <div className="glass-panel p-2 rounded-[2.5rem] overflow-hidden h-full flex flex-col min-h-[500px]">
              {/* Looker Studio Embed Placeholder */}
-             <div className="flex-grow bg-slate-950/50 rounded-[2rem] flex flex-col items-center justify-center p-8 text-center border border-slate-800/50">
-                <FiBarChart2 className="text-6xl text-slate-800 mb-4" />
-                <h3 className="text-xl font-bold text-slate-400 mb-2">Live Fleet Dashboard</h3>
-                <p className="text-slate-500 text-sm max-w-xs">
-                  Your real-time Looker Studio report will appear here once you embed the iframe.
-                </p>
-                <div className="mt-8 p-4 bg-slate-800/30 rounded-xl border border-dashed border-slate-700 text-[10px] font-mono text-slate-600">
-                  {/* The USER will paste the <iframe> here */}
-                  &lt;!-- PASTE LOOKER STUDIO IFRAME HERE --&gt;
+             <div className="flex-grow bg-slate-950/50 rounded-[2rem] overflow-hidden flex flex-col items-center justify-center border border-slate-800/50 relative">
+                <div className="absolute top-6 right-6 z-20 flex items-center gap-2 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-emerald-500/30">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-400">Live Dashboard</span>
                 </div>
+                <iframe 
+                  width="100%" 
+                  height="600" 
+                  src="https://datastudio.google.com/embed/reporting/a037b06d-77ea-4cae-b98b-1761346ce4dc/page/tEnnC" 
+                  frameBorder="0" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                ></iframe>
              </div>
              
              <div className="p-6">

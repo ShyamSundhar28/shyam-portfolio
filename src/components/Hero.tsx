@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { FiArrowRight, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
+import { FiArrowRight, FiDownload, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
 
 const containerVars: Variants = {
   hidden: { opacity: 0 },
@@ -47,7 +47,10 @@ export default function Hero() {
           <a href="#projects" className="bg-white text-slate-900 px-8 py-3.5 rounded-full font-bold hover:bg-slate-200 transition-colors flex items-center gap-2 group w-full sm:w-auto justify-center">
             View My Work <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
           </a>
-          <a href="#contact" className="glass-panel px-8 py-3.5 rounded-full font-bold hover:bg-slate-800 transition-colors bg-slate-800/50 w-full sm:w-auto justify-center text-center">
+          <a href="/resume.pdf" target="_blank" className="glass-panel px-8 py-3.5 rounded-full font-bold hover:bg-slate-800 transition-colors bg-slate-800/50 w-full sm:w-auto justify-center text-center flex items-center gap-2">
+             <FiDownload className="text-blue-400" /> Download Resume
+          </a>
+          <a href="#contact" className="text-slate-400 hover:text-white font-bold py-3.5 px-6 transition-colors">
             Contact Me
           </a>
         </motion.div>
