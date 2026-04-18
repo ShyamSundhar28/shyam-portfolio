@@ -39,9 +39,18 @@ export default function Hero() {
           <br className="hidden md:block" /> AI & Data Engineer
         </motion.h1>
         
-        <motion.p variants={itemVars} className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+        <motion.p variants={itemVars} className="text-lg md:text-xl text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed">
           I spent 3 years at Accenture building scalable Google Cloud architectures. Now completing my Master&apos;s in Computational Science, specializing in Generative AI, Data Mining, and Cloud engineering.
         </motion.p>
+        
+        <motion.div variants={itemVars} className="flex items-center justify-center gap-8 mb-12">
+          <a href="/certs/pde.pdf" target="_blank" className="group">
+            <img src="/certs/pde.png" alt="Professional Data Engineer" className="h-16 md:h-20 drop-shadow-[0_0_15px_rgba(66,133,244,0.3)] group-hover:drop-shadow-[0_0_20px_rgba(66,133,244,0.6)] group-hover:scale-110 transition-all duration-300" title="Verify Professional Data Engineer" />
+          </a>
+          <a href="/certs/ace.pdf" target="_blank" className="group">
+            <img src="/certs/ace.png" alt="Associate Cloud Engineer" className="h-16 md:h-20 drop-shadow-[0_0_15px_rgba(66,133,244,0.3)] group-hover:drop-shadow-[0_0_20px_rgba(66,133,244,0.6)] group-hover:scale-110 transition-all duration-300" title="Verify Associate Cloud Engineer" />
+          </a>
+        </motion.div>
         
         <motion.div variants={itemVars} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
           <a href="#projects" className="bg-white text-slate-900 px-8 py-3.5 rounded-full font-bold hover:bg-slate-200 transition-colors flex items-center gap-2 group w-full sm:w-auto justify-center">
