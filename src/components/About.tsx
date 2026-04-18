@@ -22,9 +22,9 @@ const milestones = [
   },
   {
     icon: <FiAward className="text-emerald-400 text-2xl" />,
-    title: "Google Cloud Certified",
-    subtitle: "Associate Cloud Engineer",
-    description: "Currently progressing towards Professional Data Engineer certification (67% complete, testing before April 2026). Active Google Developers member.",
+    title: "Double Google Cloud Certified",
+    subtitle: "ACE & Professional Data Engineer",
+    description: "Fully certified Associate Cloud Engineer and Professional Data Engineer. Expert in designing, building, and operationalizing data processing systems on GCP.",
     color: "group-hover:text-emerald-400",
     bg: "bg-emerald-500/10 border-emerald-500/20"
   }
