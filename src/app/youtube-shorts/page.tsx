@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { FiArrowLeft, FiVideo, FiLoader, FiTerminal, FiSearch, FiCheckCircle } from "react-icons/fi";
 
@@ -13,21 +13,20 @@ interface YouTubeVideo {
   description: string;
 }
 
+// In production, you would point this to your actual deployed API.
+const API_URL = "http://localhost:8000";
+
 export default function YouTubeShortsGenerator() {
   const [region, setRegion] = useState("US");
   const [loadingTrending, setLoadingTrending] = useState(false);
   const [trendingVideos, setTrendingVideos] = useState<YouTubeVideo[]>([]);
   const [selectedVideo, setSelectedVideo] = useState<YouTubeVideo | null>(null);
 
-  const [jobId, setJobId] = useState<string | null>(null);
   const [status, setStatus] = useState<string | null>(null);
   const [logs, setLogs] = useState<string[]>([]);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
 
-  // In production, you would point this to your actual deployed API.
-  const API_URL = "http://localhost:8000";
-
-  const fetchTrending = async () => {
+  const fetchTrending = useCallback(async () => {
     setLoadingTrending(true);
     setSelectedVideo(null);
     setTrendingVideos([]);
@@ -77,16 +76,14 @@ export default function YouTubeShortsGenerator() {
         setLoadingTrending(false);
       }, 700);
     }
-  };
+  }, [region]);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchTrending();
-  }, []);
+  }, [fetchTrending]);
 
   const startPipeline = async () => {
     if (!selectedVideo) return;
-    setJobId(null);
     setLogs(["Connecting to ML backend...", "Initiating Hybrid NLP Pipeline..."]);
     setStatus("Generating architecture...");
 

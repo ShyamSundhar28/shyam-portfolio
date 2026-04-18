@@ -5,46 +5,53 @@ import { FiExternalLink, FiGithub } from "react-icons/fi";
 
 const projects = [
   {
+    title: "Serverless Intelligent Telemetry Monitor",
+    description: "Bridging the gap between raw data engineering and real-time AI decision-making. End-to-end serverless pipeline ingesting vehicle telemetry via Pub/Sub, processing with Cloud Functions, and visualizing in real-time.",
+    tags: ["GCP", "Pub/Sub", "Cloud Functions", "Looker Studio", "LIVE DEMO"],
+    link: "#telemetry-monitor",
+    github: "https://github.com/ShyamSundhar28"
+  },
+  {
     title: "Automated YouTube Shorts Generator",
     description: "End-to-end AI-powered Python application that transforms trending topics into 60-second shorts. Retrieves content, summarizes via TF-IDF/BART, detects emotional tone, generates scene-based image prompts, synthesizes TTS narration, and assembles via MoviePy/FFmpeg.",
     tags: ["Python", "NLP", "Hugging Face", "MoviePy", "TTS"],
     link: "/youtube-shorts",
-    github: "#"
+    github: "https://github.com/ShyamSundhar28/youtube-shorts-generator"
   },
   {
     title: "Food Bank Inventory System",
     description: "Cloud-based inventory management application built for warehouse-style workflows. Features product categorization, case/unit tracking, authentication, and stock update logic using Angular, Firebase, and AWS architectures.",
     tags: ["Angular", "Firebase", "AWS Cognito", "DynamoDB"],
     link: "#",
-    github: "#"
+    github: "https://github.com/ShyamSundhar28"
   },
   {
     title: "Agentic AI Dashboard",
     description: "Multi-agent AI dashboard engineered in Python and Streamlit where specialized intelligent agents collaborate to handle data ingestion, automated analysis, and visualization tasks.",
     tags: ["Python", "Streamlit", "Agentic AI", "Data Analytics"],
     link: "/agentic-dashboard",
-    github: "#"
+    github: "https://github.com/ShyamSundhar28/agentic-ai-dashboard"
   },
   {
     title: "Speech Emotion Recognition",
     description: "Machine learning workflow classifying emotions from human voice data. Integrated the prediction model into an AI media generation pipeline to influence narration tone and visual prompts.",
     tags: ["Machine Learning", "Audio Processing", "Classification"],
     link: "#",
-    github: "#"
+    github: "https://github.com/ShyamSundhar28"
   },
   {
     title: "Forensic DDoS Detection",
     description: "Network forensics project detecting DDoS attack patterns using Wireshark, traffic graphs, and anomaly interpretation. Supported with Python PCAP parsing and threshold-based detection.",
     tags: ["Cybersecurity", "Wireshark", "Network Forensics", "Python"],
     link: "#",
-    github: "#"
+    github: "https://github.com/ShyamSundhar28"
   },
   {
     title: "Accessible Exam System",
     description: "Inclusive online examination platform designed specifically for visually impaired users. Emphasizes accessibility, usability in educational technology, and assistive design principles.",
     tags: ["Accessibility", "EdTech", "Inclusive Design"],
     link: "#",
-    github: "#"
+    github: "https://github.com/ShyamSundhar28"
   }
 ];
 

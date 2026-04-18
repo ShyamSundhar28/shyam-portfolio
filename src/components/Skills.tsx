@@ -6,7 +6,7 @@ const skills = [
   { category: "Cloud & Architecture", items: ["GCP (Certified)", "AWS", "Large-scale System Design", "Serverless Architecture", "IAM & VPC Networking", "Terraform (IaC)", "Cloud Build", "Docker & Kubernetes (GKE)"] },
   { category: "Data Engineering", items: ["SQL (Performance Tuning)", "Data Modeling (Star/Snowflake)", "ELT / ETL Pipelines", "dbt (Data Build Tool)", "Apache Airflow (Cloud Composer)", "Apache Spark (PySpark/Dataproc)", "Pub/Sub Streaming"] },
   { category: "Databases & Storage", items: ["BigQuery", "DynamoDB", "Cloud Spanner", "Bigtable", "Cloud SQL / Postgres", "Firestore / Firebase", "Cloud Storage (GCS)"] },
-  { category: "AI & ML Engineering", items: ["Vertex AI", "BigQuery ML", "GenAI (Gemini/Hugging Face)", "Prompt Engineering", "NLP Pipelines", "RAG Architecutre"] },
+  { category: "AI & ML Engineering", items: ["Vertex AI", "BigQuery ML", "GenAI (Gemini/Hugging Face)", "Prompt Engineering", "NLP Pipelines", "RAG Architecture"] },
   { category: "Programming & Frameworks", items: ["Python", "TypeScript", "Next.js", "FastAPI / Flask", "Streamlit", "Framer Motion"] },
   { category: "Observability & Quality", items: ["Data Validation", "Logging & Error Handling", "Performance Optimization", "Data Lineage Tracking"] },
 ];

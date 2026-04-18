@@ -14,9 +14,8 @@ export default function Footer() {
         </p>
         
         <div className="flex items-center gap-6 mt-6 md:mt-0 text-slate-400">
-          <a href="#" className="hover:text-white transition-colors">Twitter</a>
-          <a href="#" className="hover:text-white transition-colors">GitHub</a>
-          <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
+          <a href="https://github.com/ShyamSundhar28" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">GitHub</a>
+          <a href="https://linkedin.com/in/shyam-sundhar-03664b1ab" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
         </div>
       </div>
     </footer>
