@@ -1,0 +1,12 @@
+google-genai
+python-dotenv
+fastapi
+uvicorn
+gTTS
+jinja2
+requests
+spacy
+keybert
+sentence-transformers
+transformers
+scikit-learn

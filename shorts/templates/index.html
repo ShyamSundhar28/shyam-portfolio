@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shorts Generator | Gemini Powered</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f1115;
+            --card-bg: #1a1d23;
+            --accent-color: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.4);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --input-bg: #242933;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 2rem;
+            text-align: center;
+            z-index: 10;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        p.subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .search-container {
+            position: relative;
+            background: var(--input-bg);
+            border-radius: 99px;
+            padding: 8px 8px 8px 24px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .search-container:focus-within {
+            box-shadow: 0 0 0 4px var(--accent-glow);
+            border-color: var(--accent-color);
+        }
+
+        input {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            width: 100%;
+            padding: 12px 0;
+            outline: none;
+        }
+
+        button {
+            background: var(--accent-color);
+            border: none;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 99px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        button:hover {
+            background: #2563eb;
+            transform: scale(1.05);
+        }
+
+        button:disabled {
+            background: #475569;
+            cursor: not-allowed;
+        }
+
+        .result-card {
+            margin-top: 3rem;
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: none;
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            max-width: 900px;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .image-card {
+            aspect-ratio: 16/9;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #242933;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .script-text {
+            line-height: 1.7;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            white-space: pre-wrap;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 16px;
+        }
+
+        audio {
+            width: 100%;
+            border-radius: 12px;
+            background: #000;
+        }
+
+        .loader {
+            display: none;
+            margin: 2rem auto;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--accent-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Background Effects */
+        .glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            top: -200px;
+            left: -200px;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        .keyword-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .keyword-tag {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent-color);
+            padding: 6px 16px;
+            border-radius: 99px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <div class="glow"></div>
+    <div class="container">
+        <h1>Shorts Generator</h1>
+        <p class="subtitle">AI-powered 60-second scripts & voiceovers</p>
+
+        <form id="genForm">
+            <div class="search-container">
+                <input type="text" name="prompt" id="prompt" placeholder="Enter a prompt (e.g., 'The secrets of black holes')" required>
+                <button type="submit" id="submitBtn">Generate</button>
+            </div>
+        </form>
+
+        <div class="loader" id="loader"></div>
+
+        <div class="result-card" id="confirmSection" style="max-width: 600px; margin: 2rem auto; text-align: center;">
+            <p id="confirmText" style="font-size: 1.2rem; color: var(--text-primary); margin-bottom: 2rem;"></p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <button id="yesBtn" style="background: #10b981;">Yes, Proceed!</button>
+                <button id="noBtn" style="background: #ef4444;">No, I'll re-type</button>
+            </div>
+        </div>
+
+        <div class="result-card" id="resultCard">
+            <h3 style="margin-top: 0; font-family: 'Outfit';">Visual Assets</h3>
+            <div class="image-grid" id="imageGrid"></div>
+
+            <h3 style="font-family: 'Outfit';">Extracted Keywords</h3>
+            <div class="keyword-container" id="keywordGrid"></div>
+
+            <h3 style="font-family: 'Outfit';">Generated Script</h3>
+            <div class="script-text" id="scriptResult"></div>
+
+            <h3 style="font-family: 'Outfit';">Audio Voiceover</h3>
+            <audio id="audioPlayer" controls></audio>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('genForm');
+        const loader = document.getElementById('loader');
+        const resultCard = document.getElementById('resultCard');
+        const scriptResult = document.getElementById('scriptResult');
+        const imageGrid = document.getElementById('imageGrid');
+        const keywordGrid = document.getElementById('keywordGrid');
+        const audioPlayer = document.getElementById('audioPlayer');
+        const submitBtn = document.getElementById('submitBtn');
+        const confirmSection = document.getElementById('confirmSection');
+        const confirmText = document.getElementById('confirmText');
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            const prompt = document.getElementById('prompt').value;
+            
+            loader.style.display = 'block';
+            confirmSection.style.display = 'none';
+            resultCard.style.display = 'none';
+            submitBtn.disabled = true;
+
+            try {
+                const formData = new FormData();
+                formData.append('prompt', prompt);
+
+                const response = await fetch('/clarify', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+                
+                confirmText.innerText = data.question;
+                confirmSection.style.display = 'block';
+            } catch (err) {
+                alert('Clarification error: ' + err);
+            } finally {
+                loader.style.display = 'none';
+                submitBtn.disabled = false;
+            }
+        };
+
+        noBtn.onclick = () => {
+            confirmSection.style.display = 'none';
+            document.getElementById('prompt').focus();
+        };
+
+        yesBtn.onclick = async () => {
+            const prompt = document.getElementById('prompt').value;
+            
+            loader.style.display = 'block';
+            confirmSection.style.display = 'none';
+            submitBtn.disabled = true;
+
+            try {
+                const formData = new FormData();
+                formData.append('prompt', prompt);
+
+                const response = await fetch('/generate', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+
+                if (data.success) {
+                    scriptResult.innerText = data.script;
+                    
+                    // Render Image Grid
+                    if (data.images && data.images.length > 0) {
+                        data.images.forEach(url => {
+                            const card = document.createElement('div');
+                            card.className = 'image-card';
+                            card.innerHTML = `<img src="${url}" alt="Keyword Visual">`;
+                            imageGrid.appendChild(card);
+                        });
+                    }
+
+                    // Render Keywords
+                    keywordGrid.innerHTML = '';
+                    if (data.keywords && data.keywords.length > 0) {
+                        data.keywords.forEach(kw => {
+                            const tag = document.createElement('span');
+                            tag.className = 'keyword-tag';
+                            tag.innerText = kw;
+                            keywordGrid.appendChild(tag);
+                        });
+                    }
+
+                    audioPlayer.src = data.audio_url;
+                    resultCard.style.display = 'block';
+                    audioPlayer.play();
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            } catch (err) {
+                alert('Connection error: ' + err);
+            } finally {
+                loader.style.display = 'none';
+                submitBtn.disabled = false;
+            }
+        };
+    </script>
+</body>
+</html>

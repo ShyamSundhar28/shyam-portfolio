@@ -3,12 +3,12 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  { category: "Cloud & Architecture", items: ["Google Cloud Platform", "AWS", "BigQuery", "Dataflow", "Pub/Sub", "Dataproc", "Cloud Composer", "Vertex AI", "BigQuery ML", "Cognito"] },
-  { category: "AI & Machine Learning", items: ["NLP Summarization (BART)", "Speech Emotion Recognition", "Prompt Generation", "TTS Pipeline Integration", "Extractive TF-IDF"] },
-  { category: "Databases & Storage", items: ["DynamoDB", "Firebase Realtime", "Cloud Spanner", "Bigtable", "Cloud SQL", "Cloud Storage"] },
-  { category: "Programming", items: ["Python", "TypeScript", "HTML", "CSS"] },
-  { category: "Frameworks & Frontend", items: ["Angular", "Next.js", "Streamlit", "Component-driven UI"] },
-  { category: "Dev Tools & Media", items: ["Git / GitHub Actions", "VS Code", "MoviePy", "FFmpeg", "OpenCV", "Wireshark Packet Analysis"] },
+  { category: "Cloud & Architecture", items: ["GCP (Certified)", "AWS", "Large-scale System Design", "Serverless Architecture", "IAM & VPC Networking", "Terraform (IaC)", "Cloud Build", "Docker & Kubernetes (GKE)"] },
+  { category: "Data Engineering", items: ["SQL (Performance Tuning)", "Data Modeling (Star/Snowflake)", "ELT / ETL Pipelines", "dbt (Data Build Tool)", "Apache Airflow (Cloud Composer)", "Apache Spark (PySpark/Dataproc)", "Pub/Sub Streaming"] },
+  { category: "Databases & Storage", items: ["BigQuery", "DynamoDB", "Cloud Spanner", "Bigtable", "Cloud SQL / Postgres", "Firestore / Firebase", "Cloud Storage (GCS)"] },
+  { category: "AI & ML Engineering", items: ["Vertex AI", "BigQuery ML", "GenAI (Gemini/Hugging Face)", "Prompt Engineering", "NLP Pipelines", "RAG Architecutre"] },
+  { category: "Programming & Frameworks", items: ["Python", "TypeScript", "Next.js", "FastAPI / Flask", "Streamlit", "Framer Motion"] },
+  { category: "Observability & Quality", items: ["Data Validation", "Logging & Error Handling", "Performance Optimization", "Data Lineage Tracking"] },
 ];
 
 export default function Skills() {

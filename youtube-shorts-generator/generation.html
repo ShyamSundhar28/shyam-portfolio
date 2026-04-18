@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shorts Generation | Automated Shorts Generator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --accent: #8b5cf6;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-color), #000000);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            padding: 2.5rem 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding-bottom: 4rem;
+        }
+
+        .status-header {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .topic-icon {
+            font-size: 3rem;
+            background: rgba(59, 130, 246, 0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+        }
+
+        .topic-info h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .topic-info p {
+            margin: 0.5rem 0 0;
+            color: #94a3b8;
+        }
+
+        .pipeline-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+        }
+
+        .current-status {
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .spinner {
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .log-terminal {
+            background: #000;
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            color: #10b981;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #333;
+            margin-bottom: 2rem;
+        }
+
+        .script-section {
+            display: none;
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid var(--primary);
+            border-radius: 16px;
+            padding: 2rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .script-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #fff;
+            white-space: pre-line;
+            background: rgba(0,0,0,0.2);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .audio-player {
+            margin-top: 2rem;
+            width: 100%;
+        }
+
+        .keywords-tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .keyword-tag {
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .action-bar {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color);
+            color: #94a3b8;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .log-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .log-time {
+            color: #64748b;
+            margin-right: 0.6rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Automated Shorts Generation</h1>
+</header>
+
+<div class="container">
+    <div class="status-header">
+        <div class="topic-icon">🎬</div>
+        <div class="topic-info">
+            <h2 id="topicTitle">Analyzing Content...</h2>
+            <p id="jobIdDisplay">Job ID: ...</p>
+        </div>
+    </div>
+
+    <div class="pipeline-card">
+        <div class="current-status">
+            <div class="spinner" id="statusSpinner"></div>
+            <span id="statusText">Pipeline initialized...</span>
+        </div>
+
+        <div class="log-terminal" id="logTerminal"></div>
+
+        <!-- Generated script results -->
+        <div id="scriptSection" class="script-section">
+            <div class="section-title">✨ 1-Minute AI Voiceover Script</div>
+            <div id="scriptContent" class="script-content"></div>
+            
+            <audio id="audioPlayer" class="audio-player" controls style="display: none;"></audio>
+
+            <div style="margin-top: 2rem;">
+                <div class="section-title">🖼️ Visual Keywords (Unsplash Search)</div>
+                <div id="keywordCloud" class="keywords-tag-cloud"></div>
+            </div>
+        </div>
+
+        <div class="action-bar">
+            <a href="/" class="btn btn-secondary">← Back to Trends</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    const jobId = window.location.pathname.split('/').pop();
+    const statusText = document.getElementById('statusText');
+    const statusSpinner = document.getElementById('statusSpinner');
+    const logTerminal = document.getElementById('logTerminal');
+    const topicTitle = document.getElementById('topicTitle');
+    const jobIdDisplay = document.getElementById('jobIdDisplay');
+    const scriptSection = document.getElementById('scriptSection');
+    const scriptContent = document.getElementById('scriptContent');
+    const audioPlayer = document.getElementById('audioPlayer');
+    const keywordCloud = document.getElementById('keywordCloud');
+
+    jobIdDisplay.textContent = `Job ID: ${jobId}`;
+
+    let seenLogs = new Set();
+    let pollInterval = setInterval(fetchStatus, 1500);
+
+    async function fetchStatus() {
+        try {
+            const res = await fetch(`/status/${jobId}`);
+            if (!res.ok) throw new Error('Job not found');
+            const data = await res.json();
+
+            topicTitle.textContent = data.topic;
+            statusText.textContent = data.status;
+
+            // Handle Logs
+            data.logs.forEach(log => {
+                if (!seenLogs.has(log)) {
+                    seenLogs.add(log);
+                    const now = new Date();
+                    const timeStr = now.toLocaleTimeString([], { hour12: false, hour: '2-digit', minute:'2-digit', second:'2-digit' });
+                    const div = document.createElement('div');
+                    div.className = 'log-item';
+                    div.innerHTML = `<span class="log-time">[${timeStr}]</span> ${log}`;
+                    logTerminal.appendChild(div);
+                    logTerminal.scrollTop = logTerminal.scrollHeight;
+                }
+            });
+
+            // Handle Script & Audio
+            if (data.script && scriptSection.style.display !== 'block') {
+                scriptSection.style.display = 'block';
+                scriptContent.textContent = data.script;
+            }
+
+            if (data.audio_url && audioPlayer.style.display === 'none') {
+                audioPlayer.src = data.audio_url;
+                audioPlayer.style.display = 'block';
+            }
+
+            if (data.keywords && keywordCloud.children.length === 0) {
+                data.keywords.forEach(kw => {
+                    const tag = document.createElement('span');
+                    tag.className = 'keyword-tag';
+                    tag.textContent = kw;
+                    keywordCloud.appendChild(tag);
+                });
+            }
+
+            // check terminal state
+            if (data.status === 'Audio & Keywords Generated' || data.status === 'Completed') {
+                clearInterval(pollInterval);
+                statusSpinner.style.display = 'none';
+                statusText.style.color = '#10b981';
+                statusText.innerHTML = `Summarization & Scripting Complete! <span style="margin-left:8px">Ready for review.</span>`;
+            } else if (data.status === 'Error') {
+                clearInterval(pollInterval);
+                statusSpinner.style.display = 'none';
+                statusText.style.color = '#ef4444';
+            }
+
+        } catch (e) {
+            console.error(e);
+            clearInterval(pollInterval);
+            statusText.textContent = "Connection Lost or Invalid Job ID";
+            statusSpinner.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -10,3 +10,5 @@ opencv-python
 numpy
 pandas
 python-dotenv
+google-generativeai
+youtube-transcript-api

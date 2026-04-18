@@ -1,0 +1,63 @@
+﻿python : S:\.gemini\antigravity\scratch\shyam-portfolio\shorts\ge
+nerator.py:2: FutureWarning: 
+At line:1 char:1
++ python debug_gen.py 2>&1 | Out-File -FilePath 
+debug_output_utf8.txt - ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (S:\.gemini\anti...F 
+   utureWarning: :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+All support for the `google.generativeai` package has ended. It 
+will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` 
+package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/
+blob/main/README.md
+
+  import google.generativeai as genai
+--- TESTING GENERATION FOR: Virat Kohli ---
+
+[SCRIPT]
+From an intense glance to a roaring celebration, Virat Kohli isn't just a cricketer, he's a phenomenon. 'King Kohli' isn't just a nickname; it's a testament to his reign over the sport. Remember those...
+
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 103/103 [00:00<00:00, 
+8217.40it/s]
+[1mBertModel LOAD REPORT[0m from: 
+sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different 
+task/architecture; not ok if you expect identical arch.[0m
+Warning: You are sending unauthenticated requests to the HF Hub. 
+Please set a HF_TOKEN to enable higher rate limits and faster 
+downloads.
+
+[KEYWORDS]
+['cricketer phenomenon', 'cricketer', 'kohli', 'Virat Kohli', 'celebration virat', 'kohli moment', 'unforgettable kohli', 'king kohli', 'kohli isn', 'virat kohli']
+
+[SCENES]
+["Virat Kohli, eyes laser-focused and sweat glistening on his brow, perfectly executes a powerful cover drive, the bat a blur as it connects with the ball, dust rising from the pitch, stadium floodlights illuminating his determined expression during a crucial chase as the 'cricketer phenomenon'.", "'Celebration Virat' in full glory: Virat Kohli, arms outstretched and roaring to the sky, eyes wide with emotion and triumph, celebrates a match-winning century, the crowd a blurry sea of cheers and flashlights in the background, marking an 'unforgettable Kohli' moment.", "'King Kohli' in his element: Virat Kohli, authoritative and resolute as captain, gathers his team in a mid-pitch huddle under a blazing sun, his intense gaze inspiring confidence, conveying strategic instructions during a high-pressure 'kohli moment' of a major tournament.", "A dynamic shot of Virat Kohli, mid-air in a spectacular diving catch at slip, his body fully extended, eyes locked on the ball just inches from his fingertips, demonstrating peak athleticism and agility as a 'cricketer phenomenon' on the field.", "A close-up of Virat Kohli, bathed in the soft glow of twilight, taking a moment of quiet reflection after a gruelling innings, a mix of exhaustion and profound satisfaction evident in his gaze, an intimate and 'unforgettable Kohli' personal moment.", "'Kohli isn't just a player, he's a connection': Virat Kohli smiles genuinely as he walks along the boundary rope, waving to a sea of adoring fans reaching out, acknowledging their chants and cheers, embodying the global appeal of the 'cricketer phenomenon'."]
+
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 103/103 [00:00<00:00, 
+7208.27it/s]
+[1mBertModel LOAD REPORT[0m from: 
+sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+[3mNotes:
+- UNEXPECTED[3m	:can be ignored when loading from different 
+task/architecture; not ok if you expect identical arch.[0m
+
+[IMAGES]
+['https://images.unsplash.com/photo-1512719994953-eabf50895df7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzAzMzh8MHwxfHNlYXJjaHwxfHxWaXJhdCUyMEtvaGxpfGVufDB8fHx8MTc3NDczNjkyNXww&ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1607734834519-d8576ae60ea6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzAzMzh8MHwxfHNlYXJjaHwyfHxWaXJhdCUyMEtvaGxpfGVufDB8fHx8MTc3NDczNjkyNXww&ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1594470117722-de4b9a02ebed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzAzMzh8MHwxfHNlYXJjaHwzfHxWaXJhdCUyMEtvaGxpfGVufDB8fHx8MTc3NDczNjkyNXww&ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1761145586932-6b0f626f2146?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzAzMzh8MHwxfHNlYXJjaHwxMHx8S29obGklMjBkaXZpbmclMjBjYXRjaHxlbnwwfHx8fDE3NzQ3Mzk1OTl8MA&ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzAzMzh8MHwxfHNlYXJjaHw0fHxWaXJhdCUyMEtvaGxpfGVufDB8fHx8MTc3NDczNjkyNXww&ixlib=rb-4.1.0&q=80&w=1080', 'https://images.unsplash.com/photo-1480548004877-593316be2bd5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MzAzMzh8MHwxfHNlYXJjaHw1fHxWaXJhdCUyMEtvaGxpfGVufDB8fHx8MTc3NDczNjkyNXww&ixlib=rb-4.1.0&q=80&w=1080']
