@@ -10,6 +10,7 @@ const certifications = [
     date: "April 2026",
     id: "61554",
     image: "/certs/pde.png",
+    verifyLink: "https://www.credly.com/earner/earned/badge/0525c925-7721-4e5e-a76c-bab273c72284",
     description: "Demonstrates ability to design, build, and operationalize data processing systems and machine learning models."
   },
   {
@@ -18,6 +19,7 @@ const certifications = [
     date: "April 2022",
     id: "54309",
     image: "/certs/ace.png",
+    verifyLink: "https://www.credly.com/earner/earned/badge/27e876bc-1b89-4f0c-a7a5-14de16e3063a",
     description: "Evaluated competency in deploying applications, monitoring operations, and managing enterprise solutions."
   }
 ];
@@ -88,12 +90,17 @@ export default function Certifications() {
                   <div className="w-8 h-8 rounded-full bg-slate-700 border-2 border-slate-900 flex items-center justify-center text-[10px] font-bold">GC</div>
                   <div className="w-8 h-8 rounded-full bg-blue-600 border-2 border-slate-900 flex items-center justify-center text-[10px] font-bold">☁️</div>
                 </div>
-                <button className="text-blue-400 text-sm font-semibold hover:text-blue-300 flex items-center gap-2 transition-colors">
+                <a 
+                  href={cert.verifyLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-400 text-sm font-semibold hover:text-blue-300 flex items-center gap-2 transition-colors"
+                >
                   Verify Credentials
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
-                </button>
+                </a>
               </div>
             </div>
           </motion.div>
