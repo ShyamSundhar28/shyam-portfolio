@@ -28,20 +28,64 @@ const MiningPipeline = () => {
 
   const handleFileUpload = (files: FileList | null) => {
     if (!files || files.length === 0) return;
-
-    setFileName(files[0].name);
+    const file = files[0];
+    setFileName(file.name);
     setIsUploading(true);
     setPipelineStep(1);
-    
-    // Simulate the Data Engineering Pipeline Life Cycle
-    setTimeout(() => setPipelineStep(2), 1500); // Silver Layer Transformation
-    setTimeout(() => setPipelineStep(3), 3000); // Gemini AI Analysis
-    setTimeout(() => {
-      setPipelineStep(4);
-      setHealthScore(Math.floor(Math.random() * (75 - 45 + 1)) + 45); // Simulate a concerning health score (45-75%)
-      setAlerts(mockAlerts);
-      setIsUploading(false);
-    }, 4500);
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const text = e.target?.result as string;
+      const rows = text.split('\n').filter(row => row.trim() !== '').slice(1);
+      
+      let sumVib = 0, sumTemp = 0, count = 0;
+      rows.forEach(row => {
+        const columns = row.split(',');
+        if (columns.length >= 3) {
+          sumVib += parseFloat(columns[1]) || 0;
+          sumTemp += parseFloat(columns[2]) || 0;
+          count++;
+        }
+      });
+
+      const avgVib = sumVib / count;
+      const avgTemp = sumTemp / count;
+
+      // Deterministic Health Score based on real data
+      // High vibration and high temp reduce the score
+      const baseScore = 100 - ((avgVib - 30) * 0.8 + (avgTemp - 50) * 0.6);
+      const finalScore = Math.max(15, Math.min(98, Math.floor(baseScore)));
+
+      // Logic-based alerts from the actual data
+      const finalAlerts = [];
+      if (avgVib > 45) {
+        finalAlerts.push({
+          id: 1,
+          machine: 'Asset: SUDBURY-DR-01',
+          reason: `High Average Vibration (${avgVib.toFixed(1)}Hz) detected in logs.`,
+          fix: 'Gemini Recommendation: Immediate bearing inspection and realignment required.'
+        });
+      }
+      if (avgTemp > 70) {
+        finalAlerts.push({
+          id: 2,
+          machine: 'Asset: SUDBURY-HT-05',
+          reason: `Abnormal Thermal Trend (${avgTemp.toFixed(1)}°C) exceeding safety thresholds.`,
+          fix: 'Gemini Recommendation: Flush cooling system and check hydraulic pressure levels.'
+        });
+      }
+
+      // Simulate the Pipeline Life Cycle with the calculated results
+      setTimeout(() => setPipelineStep(2), 1500);
+      setTimeout(() => setPipelineStep(3), 3000);
+      setTimeout(() => {
+        setPipelineStep(4);
+        setHealthScore(finalScore);
+        setAlerts(finalAlerts.length > 0 ? finalAlerts : [{ id: 0, machine: 'System', reason: 'Clear', fix: 'No issues detected.' }]);
+        setIsUploading(false);
+      }, 4500);
+    };
+    reader.readAsText(file);
   };
 
   return (
