@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { PubSub } from "@google-cloud/pubsub";
 
 const pubSubClient = new PubSub({
-  projectId: "shyamportfolio-3f1a3",
+  projectId: "sampleproject-322017",
 });
 
 export async function POST(req: NextRequest) {

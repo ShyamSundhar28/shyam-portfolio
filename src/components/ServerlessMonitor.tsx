@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FiTruck, FiThermometer, FiSend, FiCheckCircle, FiCpu, FiCloud, FiBarChart2, FiAlertTriangle } from "react-icons/fi";
 
-export default function TelemetryMonitor() {
+export default function ServerlessMonitor() {
   const [vehicleId, setVehicleId] = useState("");
   const [temp, setTemp] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -43,7 +43,7 @@ export default function TelemetryMonitor() {
   };
 
   return (
-    <section id="telemetry-monitor" className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+    <section id="serverless-monitor" className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
       <div className="flex flex-col lg:flex-row gap-16 items-start">
         {/* Left: Interactive Simulation */}
         <motion.div 
@@ -54,7 +54,7 @@ export default function TelemetryMonitor() {
         >
           <div className="mb-8">
             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-               Serverless Intelligent <span className="text-gradient">Telemetry Monitor</span>
+               Serverless Intelligent <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Telemetry Monitor</span>
             </h2>
             <p className="text-slate-400 text-lg leading-relaxed">
               Bridging the gap between raw data engineering and real-time AI decision-making. 
@@ -62,7 +62,7 @@ export default function TelemetryMonitor() {
             </p>
           </div>
 
-          <div className="glass-panel p-8 rounded-[2rem] relative overflow-hidden">
+          <div className="glass-card p-8 rounded-[2rem] relative overflow-hidden border border-white/10">
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -z-10" />
             
             <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
@@ -105,7 +105,7 @@ export default function TelemetryMonitor() {
                 type="submit" 
                 disabled={status === "loading"}
                 className={`w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all ${
-                  status === "loading" ? "bg-slate-700 opacity-50" : "bg-blue-600 hover:bg-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.5)]"
+                  status === "loading" ? "bg-slate-700 opacity-50 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.3)]"
                 }`}
               >
                 {status === "loading" ? <><FiCpu className="animate-spin" /> Publishing...</> : <><FiSend /> Publish to Pipeline</>}
@@ -145,7 +145,7 @@ export default function TelemetryMonitor() {
                 { icon: <FiCpu />, label: "Functions", role: "Intelligence" },
                 { icon: <FiBarChart2 />, label: "Looker Studio", role: "Visibility" },
               ].map((step, i) => (
-                <div key={i} className="flex flex-col items-center gap-2 group">
+                <div key={i} className="flex flex-col items-center gap-2 group flex-1">
                   <div className="w-16 h-16 bg-slate-800/50 border border-slate-700/50 rounded-2xl flex items-center justify-center text-2xl text-blue-400 group-hover:bg-blue-500/10 group-hover:border-blue-500/30 transition-all">
                     {step.icon}
                   </div>
@@ -153,7 +153,6 @@ export default function TelemetryMonitor() {
                     <p className="text-xs font-bold text-white mb-0.5">{step.label}</p>
                     <p className="text-[10px] uppercase tracking-tighter text-slate-500">{step.role}</p>
                   </div>
-                  {i < 3 && <div className="hidden md:block absolute translate-x-12 text-slate-700">→</div>}
                 </div>
               ))}
             </div>
@@ -167,7 +166,7 @@ export default function TelemetryMonitor() {
           viewport={{ once: true }}
           className="lg:w-1/2 w-full flex flex-col h-full"
         >
-          <div className="glass-panel p-2 rounded-[2.5rem] overflow-hidden h-full flex flex-col min-h-[500px]">
+          <div className="glass-panel p-2 rounded-[2.5rem] overflow-hidden h-full flex flex-col min-h-[500px] border border-white/5">
              {/* Looker Studio Embed Placeholder */}
              <div className="flex-grow bg-slate-950/50 rounded-[2rem] overflow-hidden flex flex-col items-center justify-center border border-slate-800/50 relative">
                 <div className="absolute top-6 right-6 z-20 flex items-center gap-2 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-emerald-500/30">
@@ -176,10 +175,10 @@ export default function TelemetryMonitor() {
                 </div>
                 <iframe 
                   width="100%" 
-                  height="600" 
+                  height="100%" 
                   src="https://datastudio.google.com/embed/reporting/a037b06d-77ea-4cae-b98b-1761346ce4dc/page/tEnnC" 
                   frameBorder="0" 
-                  style={{ border: 0 }} 
+                  style={{ border: 0, minHeight: "500px" }} 
                   allowFullScreen 
                   sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
                 ></iframe>

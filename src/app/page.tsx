@@ -1,7 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import TelemetryMonitor from "@/components/TelemetryMonitor";
+import MiningPipeline from "@/components/MiningPipeline";
+import ServerlessMonitor from "@/components/ServerlessMonitor";
 import SystemDesign from "@/components/SystemDesign";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
@@ -15,7 +16,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
-      <TelemetryMonitor />
+      <MiningPipeline />
+      <ServerlessMonitor />
       <SystemDesign />
       <Projects />
       <Skills />
