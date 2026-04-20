@@ -111,10 +111,10 @@ const MiningPipeline = () => {
                 <h3 className="text-xs font-black text-slate-500 uppercase tracking-[0.2em]">Deployment Pipeline</h3>
               </div>
               <ul className="space-y-6">
-                <StatusItem label="GCP Ingestion (Stream)" active={pipelineStep === 1} done={pipelineStep > 1} />
-                <StatusItem label="BQ Transform (Silver)" active={pipelineStep === 2} done={pipelineStep > 2} />
-                <StatusItem label="Vertex AI Prediction" active={pipelineStep === 3} done={pipelineStep > 3} />
-                <StatusItem label="Agentic Alert Generated" active={pipelineStep === 4} done={pipelineStep > 4} />
+                <StatusItem label="GCP Ingestion (Stream)" active={pipelineStep === 1} done={pipelineStep >= 2} />
+                <StatusItem label="BQ Transform (Silver)" active={pipelineStep === 2} done={pipelineStep >= 3} />
+                <StatusItem label="Vertex AI Prediction" active={pipelineStep === 3} done={pipelineStep >= 4} />
+                <StatusItem label="Agentic Alert Generated" active={pipelineStep === 4} done={pipelineStep === 4} />
               </ul>
             </div>
           </div>
