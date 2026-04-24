@@ -1,0 +1,13 @@
+node_modules
+.next
+.git
+.env
+.antigravityignore
+predictive_maintenance.csv
+mining-data-pipeline
+*.png
+*.webp
+*.img
+logs
+Dockerfile
+.dockerignore

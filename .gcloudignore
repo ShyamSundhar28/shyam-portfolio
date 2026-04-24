@@ -1,0 +1,28 @@
+# Global recursive ignore
+node_modules/
+**/node_modules/
+.next/
+**/.next/
+.venv/
+**/.venv/
+.git/
+**/.git/
+.github/
+**/.github/
+
+# Local files
+.env
+predictive_maintenance.csv
+mining-data-pipeline/
+youtube-shorts-generator/
+agentic-ai-dashboard/
+shorts/
+
+# Heavy assets
+*.png
+*.webp
+*.img
+*.log
+*.tsbuildinfo
+.dockerignore
+.gcloudignore
