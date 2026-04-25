@@ -57,7 +57,7 @@ const MiningPipeline = () => {
       const finalScore = Math.max(15, Math.min(98, Math.floor(baseScore)));
 
       // Logic-based alerts from the actual data
-      const finalAlerts = [];
+      const finalAlerts: any[] = [];
       if (avgVib > 45) {
         finalAlerts.push({
           id: 1,
