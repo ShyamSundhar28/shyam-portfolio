@@ -5,6 +5,13 @@ import { FiExternalLink, FiGithub } from "react-icons/fi";
 
 const projects = [
   {
+    title: "Serverless Intelligent Telemetry Monitor",
+    description: "Bridging the gap between raw data engineering and real-time AI decision-making. End-to-end serverless pipeline ingesting vehicle telemetry via Pub/Sub, processing with Cloud Functions, and visualizing in real-time.",
+    tags: ["GCP", "Pub/Sub", "Cloud Functions", "Looker Studio", "LIVE DEMO"],
+    link: "#telemetry-monitor",
+    github: "https://github.com/ShyamSundhar28"
+  },
+  {
     title: "Automated YouTube Shorts Generator",
     description: "End-to-end AI-powered Python application that transforms trending topics into 60-second shorts. Retrieves content, summarizes via TF-IDF/BART, detects emotional tone, generates scene-based image prompts, synthesizes TTS narration, and assembles via MoviePy/FFmpeg.",
     tags: ["Python", "NLP", "Hugging Face", "MoviePy", "TTS"],
